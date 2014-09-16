@@ -59,8 +59,8 @@ if($req_type == TYPE_LIST){
 
 class StaticReader {
 
-    private static $LIST_EXT = ".list.json";
-    private static $DATA_EXT = ".data.json";
+    private static $LIST_EXT = ".lslist.json";
+    private static $DATA_EXT = ".lsdata.json";
     private static $CONNECTOR = "_";
 
     private static $module_list = array();

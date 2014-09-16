@@ -81,7 +81,6 @@ class StaticReader {
                 return array();
             }
         }else{
-            //todo 正式版本修改目录
             $listFile = self::getDataDir() . DS . $module . self::$LIST_EXT;
             //$listFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$LIST_EXT;
             if(file_exists($listFile)){
@@ -109,9 +108,8 @@ class StaticReader {
                 $pkg_data = array();
             }
         }else{
-            //todo 正式版本修改目录
-            //$listFile = self::getDataDir() . DS . $pid . self::$LIST_EXT;
-            $dataFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$DATA_EXT;
+            //$dataFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$DATA_EXT;
+            $dataFile = self::getDataDir() .  DS . $module . self::$DATA_EXT;
             if(file_exists($dataFile)){
                 self::$module_data[$module] = json_decode(file_get_contents($dataFile), true);
                 if(isset(self::$module_data[$module][$pid])){
@@ -130,14 +128,16 @@ class StaticReader {
             foreach($hashs as $hash){
                 if(isset($pkg_data[$hash])){
                     $newData[] = array(
-                        $hash => $pkg_data[$hash]
+                        "hash" => $hash,
+                        "content" => $pkg_data[$hash]
                     );
                 }
             }
         }else{
             foreach($pkg_data as $hash => $content){
                 $newData[] = array(
-                    $hash => $content
+                    "hash" => $hash,
+                    "content" => $content
                 );
             }
         }

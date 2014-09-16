@@ -81,8 +81,9 @@ class StaticReader {
                 return array();
             }
         }else{
-            //$listFile = self::getDataDir() . DS . $module . self::$LIST_EXT;
-            $listFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$LIST_EXT;
+            //todo 正式版本修改目录
+            $listFile = self::getDataDir() . DS . $module . self::$LIST_EXT;
+            //$listFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$LIST_EXT;
             if(file_exists($listFile)){
                 $listObj = json_decode(file_get_contents($listFile), true);
                 self::$module_list[$module] = $listObj;
@@ -108,6 +109,7 @@ class StaticReader {
                 $pkg_data = array();
             }
         }else{
+            //todo 正式版本修改目录
             //$listFile = self::getDataDir() . DS . $pid . self::$LIST_EXT;
             $dataFile = self::getDataDir() . DS . "test" . DS . "data" . DS . $module . self::$DATA_EXT;
             if(file_exists($dataFile)){
